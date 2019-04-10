@@ -286,7 +286,7 @@ void VideoGameListView::updateInfoPanel()
 			mLastPlayed.setValue(file->metadata.get("lastplayed"));
 			mPlayCount.setValue(file->metadata.get("playcount"));
 
-                        std::ofstream out("/tmp/PiMarquee.log");
+                        std::ofstream out("/tmp/PieMarquee.log");
                         out << file->getPath();
 			out.close();
 		}
