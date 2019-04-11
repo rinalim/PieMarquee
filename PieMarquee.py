@@ -9,9 +9,10 @@ def run_cmd(cmd):
     p = Popen(cmd, shell=True, stdout=PIPE)
     output = p.communicate()[0]
     return output
-    
+
+cur_romname = ""
 while True:
-   romfile = "maintitle"
+   romname = "maintitle"
    adv_romfile = run_cmd("ps -aux | grep advmame/bin/advmame | grep -v 'grep' | awk '{print $12}'")
    if words[0] == "maintitle" and len(adv_romfile) <= 1: 
        romfile = "maintitle"
