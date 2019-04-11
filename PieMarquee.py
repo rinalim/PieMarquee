@@ -20,3 +20,7 @@ while True:
        if len(adv_romfile) > 1 :
            system = "mame-advmame"
            romfile = adv_romfile.replace("\n","")
+            
+path = '"/home/user/RetroPie/roms/arcade/1941.zip"'
+
+romname = path.replace('"','').split("/")[-1].split(".")[0
