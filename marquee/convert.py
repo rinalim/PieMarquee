@@ -11,6 +11,7 @@ source_path = sys.argv[1]
 
 if os.path.isdir(source_path) == True:
     file_list = os.listdir(source_path)
+    file_list.sort()
     for f in file_list:
         if ".png" in f:
             run_cmd("convert " + source_path + f + " -resize 1024x600 ./" + f)
