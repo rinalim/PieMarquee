@@ -5,7 +5,6 @@ sudo chmod 755 /usr/bin/pngview
 rm -rf /opt/retropie/configs/all/PieMarquee/
 mkdir /opt/retropie/configs/all/PieMarquee/
 cp -f -r ./PieMarquee /opt/retropie/configs/all/
-sudo chmod 755 /opt/retropie/configs/all/PieMarquee/emulationstation
 
 sudo sed -i '/PieMarquee.py/d' /opt/retropie/configs/all/autostart.sh
 sudo sed -i '1i\\/usr/bin/python /opt/retropie/configs/all/PieMarquee/PieMarquee.py &' /opt/retropie/configs/all/autostart.sh
