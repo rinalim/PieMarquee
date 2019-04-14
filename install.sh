@@ -2,6 +2,8 @@ sudo cp ./libraspidmx.so.1 /usr/lib
 sudo cp ./pngview /usr/bin
 sudo chmod 755 /usr/bin/pngview
 
+sudo apt-get install imagemagick -y
+
 rm -rf /opt/retropie/configs/all/PieMarquee/
 mkdir /opt/retropie/configs/all/PieMarquee/
 cp -f -r ./PieMarquee /opt/retropie/configs/all/
