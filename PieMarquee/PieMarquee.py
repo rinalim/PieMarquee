@@ -4,11 +4,16 @@ import os
 from subprocess import *
 from time import *
 
+INTRO = "/opt/retropie/configs/all/PieMarquee/intro.mp4"
+
 def run_cmd(cmd):
 # runs whatever in the cmd variable
     p = Popen(cmd, shell=True, stdout=PIPE)
     output = p.communicate()[0]
     return output
+
+if os.path.isfile(INTRO) == True:
+    run_cmd("omxplayer --display 4 " + INTRO)
 
 cur_imgpath = ""
 while True:
