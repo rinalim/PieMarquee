@@ -52,9 +52,9 @@ while True:
     else:
         romname = "maintitle"
    
-    if os.path.isfile("/opt/retropie/configs/all/PieMarquee/marquee/" + romname + ".png") == True:
+    if os.path.isfile("/home/pi/PieMarquee/marquee/" + romname + ".png") == True:
         imgpath = romname
-    elif os.path.isfile("/opt/retropie/configs/all/PieMarquee/marquee/" + sysname + ".png") == True:
+    elif os.path.isfile("/home/pi/PieMarquee/marquee/" + sysname + ".png") == True:
         imgpath = sysname
     else:
         imgpath = "maintiitle"
@@ -63,7 +63,7 @@ while True:
     if imgpath != cur_imgpath:
         #print imgpath 
         run_cmd("killall -9 pngview")
-        os.system("/usr/bin/pngview -d4 /opt/retropie/configs/all/PieMarquee/marquee/" + imgpath + ".png &")
+        os.system("/usr/bin/pngview -d4 /home/pi/PieMarquee/marquee/" + imgpath + ".png &")
         cur_imgpath = imgpath
 
     sleep(sleep_interval)
