@@ -57,7 +57,7 @@ while True:
     elif os.path.isfile("/home/pi/PieMarquee/marquee/" + sysname + ".png") == True:
         imgpath = sysname
     else:
-        imgpath = "maintiitle"
+        imgpath = "maintitle"
         
     #print romname
     if imgpath != cur_imgpath:
