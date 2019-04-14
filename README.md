@@ -1,2 +1,2 @@
 # PieMarquee
-Marquee for RetroPie
+Marquee on the second screen for RetroPie
