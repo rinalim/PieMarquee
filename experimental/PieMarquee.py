@@ -5,7 +5,7 @@ from subprocess import *
 from time import *
 
 INTRO = "/opt/retropie/configs/all/PieMarquee/intro.mp4"
-CHANGE_INTERVAL = 3
+CHANGE_INTERVAL = 5
 
 def run_cmd(cmd):
 # runs whatever in the cmd variable
