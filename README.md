@@ -1,5 +1,5 @@
 # PieMarquee
-Marquee on the second screen for RetroPie
+Marquee plugin for RetroPie
 
 ## Install
 <pre><code>
