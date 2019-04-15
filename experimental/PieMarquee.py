@@ -5,6 +5,7 @@ from subprocess import *
 from time import *
 
 INTRO = "/opt/retropie/configs/all/PieMarquee/intro.mp4"
+CHANGE_INTERVAL = 3
 
 def run_cmd(cmd):
 # runs whatever in the cmd variable
@@ -16,6 +17,7 @@ if os.path.isfile(INTRO) == True:
     run_cmd("omxplayer --display 4 " + INTRO)
 
 cur_imgpath = ""
+change_count = 0
 while True:
     sleep_interval = 1
     romname = ""
@@ -54,6 +56,14 @@ while True:
    
     if os.path.isfile("/home/pi/PieMarquee/marquee/" + romname + ".png") == True:
         imgpath = romname
+        if os.path.isfile("/home/pi/PieMarquee/marquee/" + romname + "-1.png") == True:
+            change_count = change_count+1
+            if change_count == CHANGE_INTERVAL:
+                change_count = 0
+                if cur_imgpath == romname:
+                    imgpath = romname+"-1"
+                elif cur_imgpath == romname+"-1":
+                    imgpath = romname
     elif os.path.isfile("/home/pi/PieMarquee/marquee/" + sysname + ".png") == True:
         imgpath = sysname
     else:
@@ -65,5 +75,6 @@ while True:
         run_cmd("killall -9 pngview")
         os.system("/usr/bin/pngview -d4 /home/pi/PieMarquee/marquee/" + imgpath + ".png &")
         cur_imgpath = imgpath
+        change_count = 0
 
     sleep(sleep_interval)
