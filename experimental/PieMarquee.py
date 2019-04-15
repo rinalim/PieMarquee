@@ -56,10 +56,9 @@ while True:
    
     if os.path.isfile("/home/pi/PieMarquee/marquee/" + romname + ".png") == True:
         imgpath = romname
-        if os.path.isfile("/home/pi/PieMarquee/marquee/" + romname + "-1.png") == True:
+        if len(ps_grep) > 1 and os.path.isfile("/home/pi/PieMarquee/marquee/" + romname + "-1.png") == True:
             change_count = change_count+1
             if change_count == CHANGE_INTERVAL:
-                change_count = 0
                 if cur_imgpath == romname:
                     imgpath = romname+"-1"
                 elif cur_imgpath == romname+"-1":
