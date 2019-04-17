@@ -73,6 +73,7 @@ while True:
     if imgpath != cur_imgpath:
         #print imgpath 
         run_cmd("killall -9 pngview")
+        run_cmd("killall -9 omxplayer")
         if imgpath == "maintitle" and os.path.isfile("/home/pi/PieMarquee/marquee/maintitle.mp4") == True:
             os.system("omxplayer --loop --no-osd --display 4 /home/pi/PieMarquee/marquee/maintitle.mp4 &")
         else:
