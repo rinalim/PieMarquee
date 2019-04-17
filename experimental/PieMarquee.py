@@ -77,7 +77,7 @@ while True:
             os.system("omxplayer --loop --no-osd --display 4 /home/pi/PieMarquee/marquee/maintitle.mp4 &")
         else:
             #os.system("/usr/bin/pngview -d4 /home/pi/PieMarquee/marquee/" + imgpath + ".png &")
-            os.system("/usr/bin/pngview -l30000 /home/pi/PieMarquee/marquee/" + imgpath + ".png &")
+            os.system("/usr/bin/pngview -l30000 -y0 /home/pi/PieMarquee/marquee/" + imgpath + ".png &")
         cur_imgpath = imgpath
         change_count = 0
 
