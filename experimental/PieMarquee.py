@@ -73,7 +73,10 @@ while True:
     if imgpath != cur_imgpath:
         #print imgpath 
         run_cmd("killall -9 pngview")
-        os.system("/usr/bin/pngview -d4 /home/pi/PieMarquee/marquee/" + imgpath + ".png &")
+        if imgpath == "maintitle" and os.path.isfile("/home/pi/PieMarquee/marquee/maintitle.mp4") == True:
+            os.system("omxplayer --loop --display 4 /home/pi/PieMarquee/marquee/maintitle.mp4 &")
+        else:
+            os.system("/usr/bin/pngview -d4 /home/pi/PieMarquee/marquee/" + imgpath + ".png &")
         cur_imgpath = imgpath
         change_count = 0
 
