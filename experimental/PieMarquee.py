@@ -13,6 +13,11 @@ def run_cmd(cmd):
     output = p.communicate()[0]
     return output
 
+def kill_proc(name):
+    ps_grep = run_cmd("ps -aux | grep " + name + "| grep -v 'grep'")
+    if len(ps_grep) > 1: 
+        run_cmd("killall -9 " + name)
+
 if os.path.isfile(INTRO) == True:
     run_cmd("omxplayer --display 4 " + INTRO)
 
