@@ -13,6 +13,11 @@ def run_cmd(cmd):
     output = p.communicate()[0]
     return output
 
+def kill_proc(name):
+    ps_grep = run_cmd("ps -aux | grep " + name + "| grep -v 'grep'")
+    if len(ps_grep) > 1: 
+        run_cmd("killall -9 " + name)
+
 if os.path.isfile(INTRO) == True:
     run_cmd("omxplayer --display 4 " + INTRO)
 
@@ -72,8 +77,13 @@ while True:
     #print romname
     if imgpath != cur_imgpath:
         #print imgpath 
-        run_cmd("killall -9 pngview")
-        os.system("/usr/bin/pngview -d4 /home/pi/PieMarquee/marquee/" + imgpath + ".png &")
+        kill_proc("pngview")
+        kill_proc("omxplayer.bin")
+        if imgpath == "maintitle" and os.path.isfile("/home/pi/PieMarquee/marquee/maintitle.mp4") == True:
+            os.system("omxplayer --loop --no-osd --display 4 /home/pi/PieMarquee/marquee/maintitle.mp4 &")
+        else:
+            os.system("/usr/bin/pngview -d4 /home/pi/PieMarquee/marquee/" + imgpath + ".png &")
+            #os.system("/usr/bin/pngview -l30000 -y0 /home/pi/PieMarquee/marquee/" + imgpath + ".png &")
         cur_imgpath = imgpath
         change_count = 0
 
